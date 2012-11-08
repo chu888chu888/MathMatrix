@@ -31,13 +31,22 @@ function rndColor() {
 	return 'rybg'[Math.random() * 4 | 0];
 }
 
-function textMartrix(arrMatrix) {
-	var i, j;
+function getTextMatrix(arrMatrix) {
+	var i, j,ret_html=[];
 	for ( i = 0; i < 10; i++) {
+		ret_html.push('<div>');
 		for ( j = 0; j < 10; j++) {
-			arrMatrix[i][j];
+			ret_html.push('<span>',arrMatrix[i][j][0],'</span>');
 		}
+		ret_html.push('</div>');
 	}
+	return ret_html.join('');
 }
 
+$(function(){
+
+	$('#main_content').append(getTextMatrix(getRndMatrix()));
+	
+	
+});
 //})();
