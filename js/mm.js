@@ -10,7 +10,7 @@
 //(function() {
 
 var dp = getRndMatrix();
-
+setting={r:'red',y:'yellow',b:'blue',g:'green'};
 function getRndMatrix() {
 	var arrMatrix = [[], [], [], [], [], [], [], [], [], []], i, j;
 	for ( i = 0; i < 10; i++) {
@@ -34,9 +34,9 @@ function rndColor() {
 function getTextMatrix(arrMatrix) {
 	var i, j,ret_html=[];
 	for ( i = 0; i < 10; i++) {
-		ret_html.push('<div>');
+		ret_html.push('<div class="matrix-line">');
 		for ( j = 0; j < 10; j++) {
-			ret_html.push('<span>',arrMatrix[i][j][0],'</span>');
+			ret_html.push('<span class="',setting[arrMatrix[i][j][1]],'">',arrMatrix[i][j][0],'</span>');
 		}
 		ret_html.push('</div>');
 	}
@@ -45,7 +45,7 @@ function getTextMatrix(arrMatrix) {
 
 $(function(){
 
-	$('#main_content').append(getTextMatrix(getRndMatrix()));
+	$('#main_content').append(getTextMatrix(dp));
 	
 	
 });

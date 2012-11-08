@@ -1,0 +1,16 @@
+.matrix-line span{
+	display:inline-block;
+	width:30px;
+	height:30px;
+	border:1px solid #ccc;
+	border-radius:4px;
+	margin:2px;
+	box-sizing: border-box;
+	text-align:center;
+	line-height:30px;	
+}
+
+.red{background:red;}
+.yellow{background:yellow;}
+.blue{background:blue;}
+.green{background:green;}
