@@ -1,52 +1,57 @@
 /*!
-* MathMatrix v0.1
-* https://github.com/Tairraos/MathMatrix
-*
-* Copyright 2012 Tairraos and other contributors
-* Released under the MIT license
-*
-* Date: 2012-11-13
-*/
-//(function() {
-
-var dp = getRndMatrix();
-setting={r:'red',y:'yellow',b:'blue',g:'green'};
-function getRndMatrix() {
-	var arrMatrix = [[], [], [], [], [], [], [], [], [], []], i, j;
-	for ( i = 0; i < 10; i++) {
-		for ( j = 0; j < 10; j++) {
-		    //number, color, status(normal, locked, bonus)
-			arrMatrix[i][j] = rndNumber() + rndColor() + 'n';
+ * MathMatrix v0.1
+ * https://github.com/Tairraos/MathMatrix
+ *
+ * Copyright 2012 Tairraos and other contributors
+ * Released under the MIT license
+ *
+ * Date: 2012-11-13
+ */
+(function ($) {
+	"use strict";
+	window.mm = {
+		rndNumber: function () {
+			return Math.round(Math.random() * 10).toString();
+		},
+		rndSharp: function () {
+			//r=red,y=yellow,b=blue,g=green
+			return 'rybgo'.substr(Math.floor(Math.random() * 4), 1);
+		},
+		rndBlock: function () {
+			return mm.rndNumber() + mm.rndSharp() + 'n';
+		},
+		getRndLine: function (n) {
+			var arrLine = [];
+			while (n--) {
+				arrLine.push(mm.rndBlock());
+			}
+			return arrLine;
+		},
+		getRndMatrix: function (w, h) {
+			var arrMatrix = [];
+			while (w--) {
+				arrMatrix.push(mm.getRndLine(h));
+			}
+			return arrMatrix;
 		}
-	}
-	return arrMatrix;
-}
+	};
 
-function rndNumber() {
-	return (Math.random() * 10 | 0).toString();
-}
+	var setting = {r: 'red', y: 'yellow', b: 'blue', g: 'green', o: 'other'};
 
-function rndColor() {
-	//r=red,y=yello,b=blue,g=green
-	return 'rybg'[Math.random() * 4 | 0];
-}
-
-function getTextMatrix(arrMatrix) {
-	var i, j,ret_html=[];
-	for ( i = 0; i < 10; i++) {
-		ret_html.push('<div class="matrix-line">');
-		for ( j = 0; j < 10; j++) {
-			ret_html.push('<span class="',setting[arrMatrix[i][j][1]],'">',arrMatrix[i][j][0],'</span>');
+	function getTextMatrix(arrMatrix) {
+		var i = arrMatrix.length, j, ret_html = [];
+		while (i--) {
+			j = arrMatrix[0].length;
+			ret_html.push('<div class="matrix-line">');
+			while (j--) {
+				ret_html.push('<span class="', setting[arrMatrix[i][j][1]], '">', arrMatrix[i][j][0], '</span>');
+			}
+			ret_html.push('</div>');
 		}
-		ret_html.push('</div>');
+		return ret_html.join('');
 	}
-	return ret_html.join('');
-}
 
-$(function(){
-
-	$('#main_content').append(getTextMatrix(dp));
-	
-	
-});
-//})();
+	$(function () {
+		$('#main_content').append(getTextMatrix(mm.getRndMatrix(7, 9)));
+	});
+}(jQuery));
