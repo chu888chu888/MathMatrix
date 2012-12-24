@@ -1,12 +1,17 @@
-.matrix-line span{
-	display:inline-block;
-	width:30px;
-	height:30px;
-	border:1px solid #ccc;
-	border-radius:4px;
-	margin:2px;
-	box-sizing: border-box;
-	text-align:center;
-	line-height:30px;	
+#header_wrap {
+	margin: 10px 0 0 10px;
+	font: bold 20px verdana;
 }
 
+#footer_wrap {
+	margin: 20px 0 0 10px;
+	font: 10px verdana;
+}
+
+#matrix {
+	position: relative;
+}
+
+#matrix canvas{
+	position: absolute;
+}
