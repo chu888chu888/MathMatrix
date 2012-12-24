@@ -1,26 +1,19 @@
 /**
- * @file mm.config
- * @author Tairraos (http://xiaole.happylive.org)
- * @Date 2012-12-14
+ * @module config
+ * @author Xiaole Tao (http://xiaole.happylive.org)
  */
 
 (function() {
-    "use strict";
-    var config = {
-        data: {
-        },
-        setting: {
-            maxNum: 9,
-            width: 6,
-            height: 6
-        },
-        sharp: {
-            r: 'rabbit',
-            f: 'frog',
-            c: 'cow',
-            s: 'sheep'
-        }
-    };
-    mm.declare('mm.config', config);
-
+	"use strict";
+	var config = {
+		data: {
+		},
+		setting: {
+			blockMaxNum: 9,
+			matrixCapacity: 6,
+			blockSize: 60
+		},
+		suit: { h: 'hearts', d: 'diamonds', s: 'spades', c: 'clubs' }
+	};
+	mm.declare('config', config);
 }());
