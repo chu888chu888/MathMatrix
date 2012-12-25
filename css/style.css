@@ -1,11 +1,11 @@
 #header_wrap {
-	margin: 10px 0 0 10px;
-	font: bold 20px verdana;
+    font: bold 20px verdana;
+	margin: 5px 10px;
 }
 
 #footer_wrap {
-	margin: 20px 0 0 10px;
-	font: 10px verdana;
+    font: 10px verdana;
+	margin: 5px 10px;
 }
 
 #matrix {
