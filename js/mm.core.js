@@ -3,7 +3,7 @@
  * @author Xiaole Tao (http://xiaole.happylive.org)
  */
 (function($) {
-	"use strict";
+	'use strict';
 	window.mm = {
 		/**
 		 * declare class|namespace, and return it

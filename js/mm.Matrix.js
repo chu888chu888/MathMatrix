@@ -3,7 +3,7 @@
  * @author Xiaole Tao (http://xiaole.happylive.org)
  */
 (function() {
-	"use strict";
+	'use strict';
 	var config = mm.require('config'),
 		setting = config.setting;
 

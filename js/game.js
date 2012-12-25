@@ -1,14 +1,16 @@
-/*!
- * MathMatrix v0.1
+/**
+ * MathMatrix
  * https://github.com/Tairraos/MathMatrix
  *
- * Copyright 2012 Xiaole Tao(Tairraos) and other contributors
+ * Copyright 2012 Xiaole Tao (Tairraos) and other contributors
  * Released under the MIT license
  *
- * Date: 2012-11-13
+ * @author Xiaole Tao (http://xiaole.happylive.org)
+ * @version 0.1
+ * @license MIT
  */
 (function($) {
-	"use strict";
+	'use strict';
 	if (!window.mm) { return; }
 
 	var mm = window.mm,
