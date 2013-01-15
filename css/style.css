@@ -1,10 +1,10 @@
 #header_wrap {
-    font: bold 20px verdana;
+	font: bold 20px verdana;
 	margin: 5px 10px;
 }
 
 #footer_wrap {
-    font: 10px verdana;
+	font: 10px verdana;
 	margin: 5px 10px;
 }
 
@@ -12,6 +12,6 @@
 	position: relative;
 }
 
-#matrix canvas{
+#matrix canvas, #matrix img {
 	position: absolute;
 }

@@ -10,8 +10,8 @@
 		},
 		setting: {
 			blockMaxNum: 9,
-			matrixCapacity: 6,
-			blockSize: 60
+			matrixCapacity: 5,
+			blockSize: 45
 		},
 		suit: { h: 'hearts', d: 'diamonds', s: 'spades', c: 'clubs' }
 	};

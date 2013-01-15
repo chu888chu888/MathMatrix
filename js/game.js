@@ -19,19 +19,21 @@
 		block = mm.require('block');
 
 	function getImageMatrix(arrMatrix) {
-		var x, y, b, size = arrMatrix.length, ret_html = [], s = config.setting.blockSize + 10;
-		for (y = 0; y < size; y++) {
-			for (x = 0; x < size; x++) {
+		var x, y, b, l = arrMatrix.length, s = config.setting.blockSize + 6,
+			domRet = [], domTmp;
+		for (y = 0; y < l; y++) {
+			for (x = 0; x < l; x++) {
 				b = arrMatrix[x][y].split('');
-				ret_html.push($(block.getBlockCanvas(b[1], b[0])).css({top: y * s + 5, left: x * s + 5}));
+				domTmp = $(block.getBlockCanvas(b[1], b[0])).css({top: y * s + 3, left: x * s + 3}).attr('data-position', x + ',' + y);
+				domRet.push(domTmp);
 			}
 		}
-		return ret_html;
+		return domRet;
 	}
 
 	$(function() {
-		var s = (config.setting.blockSize + 10) * config.setting.matrixCapacity;
+		var s = (config.setting.blockSize + 6) * config.setting.matrixCapacity;
 		Matrix.init();
-		$('#matrix').css({width: s, height: s}).append(getImageMatrix(config.data.matrix));
+		$('#matrix').empty().css({width: s, height: s}).append(getImageMatrix(config.data.matrix));
 	});
 }(jQuery));
