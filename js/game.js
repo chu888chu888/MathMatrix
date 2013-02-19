@@ -13,10 +13,9 @@
 	'use strict';
 	if (!window.mm) { return; }
 
-	var mm = window.mm,
-		config = mm.require('config'),
-		Matrix = mm.require('Matrix'),
-		block = mm.require('block');
+	var config = $.require('mm.config'),
+		Matrix = $.require('mm.Matrix'),
+		block = $.require('mm.block');
 
 	function getImageMatrix(arrMatrix) {
 		var x, y, b, l = arrMatrix.length, s = config.setting.blockSize + 6,

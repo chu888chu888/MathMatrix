@@ -1,10 +1,11 @@
 /**
- * @module core
+ * extend jQuery
  * @author Xiaole Tao (http://xiaole.happylive.org)
  */
+
 (function($) {
 	'use strict';
-	window.mm = {
+	$.extend({
 		/**
 		 * declare class|namespace, and return it
 		 * @param {string} sPath - the path of new class|namespace, e.g. 'mm.Matrix'
@@ -12,11 +13,14 @@
 		 * @return {object|function} retObj
 		 */
 		declare: function(sPath, oStructure) {
-			var paths = sPath.split('.'), path = paths.shift(), retObj = window.mm;
+			var paths = sPath.split('.'),
+				path = paths.shift(),
+				retObj = window;
+
 			while (path) {
 				if (!retObj[path]) {
 					retObj[path] = path.match(/^[A-Z]/) ? function() {
-						if (this.init) { this.init.apply(this,arguments); }
+						if (typeof this.init === 'function') { this.init.apply(this, arguments); }
 					} : {};
 				}
 				retObj = retObj[path];
@@ -26,6 +30,7 @@
 				$.extend(retObj, oStructure);
 				$.extend(retObj.prototype, oStructure);
 			}
+
 			return retObj;
 		},
 
@@ -35,7 +40,8 @@
 		 * @return {object|function}
 		 */
 		require: function(sPath) {
-			return this.declare(sPath);
+			return $.declare(sPath);
 		}
-	};
+	});
+
 }(jQuery));

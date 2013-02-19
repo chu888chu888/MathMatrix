@@ -3,7 +3,7 @@
  * @author Xiaole Tao (http://xiaole.happylive.org)
  */
 
-(function() {
+(function($) {
 	'use strict';
 	var config = {
 		data: {
@@ -15,5 +15,5 @@
 		},
 		suit: { h: 'hearts', d: 'diamonds', s: 'spades', c: 'clubs' }
 	};
-	mm.declare('config', config);
-}());
+	$.declare('mm.config', config);
+}(jQuery));

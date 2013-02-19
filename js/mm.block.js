@@ -6,8 +6,9 @@
 (function() {
 	'use strict';
 	if (window.CanvasRenderingContext2D) {
-		var config = mm.require('config'),
+		var config = $.require('mm.config'),
 			setting = config.setting;
+
 		var symbolPath = {
 			'0': 'M55,0,C36,0,0,17,0,39,L0,162,C0,183,36,200,55,200,L66,200,C85,200,120,183,120,162,L120,39,C120,17,85,0,66,0,L55,0,M60,19,C72,19,100,28,100,38,L100,163,C100,174,72,183,60,183,C49,183,20,174,20,163,L20,38,C20,28,49,19,60,19z',
 			'1': 'M60,200,L60,0,L82,0,L82,200,L60,200z',
@@ -309,6 +310,7 @@
 				return this.getBlockCanvas(suit, point).toDataURL();
 			}
 		};
-		mm.declare('block', block);
+
+		$.declare('mm.block', block);
 	}
 }());

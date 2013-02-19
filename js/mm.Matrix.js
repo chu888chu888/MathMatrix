@@ -4,7 +4,7 @@
  */
 (function() {
 	'use strict';
-	var config = mm.require('config'),
+	var config = $.require('mm.config'),
 		setting = config.setting;
 
 	var Matrix = {
@@ -78,5 +78,5 @@
 		}
 	};
 
-	mm.declare('Matrix', Matrix);
+	$.declare('mm.Matrix', Matrix);
 }());
